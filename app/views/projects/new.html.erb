@@ -1,0 +1,32 @@
+<h1>Add a new project!</h1>
+
+<%= form_for @project do |f| %>
+    <fieldset>
+        <div>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+        <div>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+        </div>
+<!--         <div>
+            <%= f.label :start_date %>
+            <%= f.text_field :start_date %>
+        </div>
+        <div>
+            <%= f.label :end_date %>
+            <%= f.text_field :end_date %>
+        </div> -->
+        <div>
+            <%= f.label :category %>
+            <%= f.text_field :category %>
+        </div>
+<!--         <div>
+            <%= f.label :client %>
+            <%= f.text_field :user_id %>
+        </div> -->
+    </fieldset>
+    <%= f.submit %>
+
+<% end %>

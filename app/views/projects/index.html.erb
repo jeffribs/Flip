@@ -1,0 +1,9 @@
+Reroute to here after you log in!!!
+
+<h3><%= link_to "+ Add New Project", new_project_path %></h3>
+
+<% @projects.each do |project| %>
+    <div>
+        <%= link_to project.title, project %><br>
+    </div>
+<% end %>

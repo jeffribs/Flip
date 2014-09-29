@@ -1,0 +1,18 @@
+<h3><%= @project.title %></h3>
+<h4>Project Description: <%= @project.description %></h4>
+<h4>Category: <%= @project.category %></h4>
+<h4>Start Date: <%= @project.start_date %></h4>
+<h4>End Date: <%= @project.end_date %></h4>
+
+
+<h3><%= link_to "+ Add a project update", new_post_path %></h3>
+
+<div>
+    <% @project.post.each do |post| %>
+        <div>
+            <h3><%= link_to post.title, post %></h3>
+            <p><%= post.description %></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quas, facere nobis, harum quia consectetur placeat, libero adipisci impedit, totam quam! Iusto culpa, atque fugit fugiat facilis tempora enim laudantium?</p>
+        </div>
+    <% end %>
+</div>
