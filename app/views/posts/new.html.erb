@@ -11,6 +11,9 @@
             <%= f.text_field :description %>
         </div>
     </fieldset>
+    <%= f.fields_for :document do |document_fields| %>
+        <%= document_fields.input :attachment, as: :file %>
+    <% end %>
     <%= f.submit %>
 
 <% end %>

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929214545) do
+ActiveRecord::Schema.define(version: 20140930030728) do
+
+  create_table "documents", force: true do |t|
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  add_index "documents", ["post_id"], name: "index_documents_on_post_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

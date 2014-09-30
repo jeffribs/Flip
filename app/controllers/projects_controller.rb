@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find params[:id]
         @post = Post.new
+        @document = Document.new
     end
 
     def new

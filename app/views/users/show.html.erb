@@ -1,1 +1,7 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user.email %></h1>
+
+<% @projects.each do |project| %>
+    <div>
+        <%= link_to project.title, project %><br>
+    </div>
+<% end %>
