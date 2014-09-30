@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+    before_action :authenticate_user!
+
     def index
         @posts = Post.all
     end
@@ -9,8 +11,10 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(post_params)
-        redirect_to projects_path
+        # @post = Post.create(post_params)
+        @post = current_user.posts.create post_params
+
+        redirect_to @post.project
     end
 
     def show

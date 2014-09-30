@@ -1,16 +1,32 @@
 <h3><%= @project.title %></h3>
 <h4>Project Description: <%= @project.description %></h4>
 <h4>Category: <%= @project.category %></h4>
-<h4>Start Date: <%= @project.start_date %></h4>
-<h4>End Date: <%= @project.end_date %></h4>
+<h4>Start Date: <%= @project.created_at %></h4>
+<!-- <h4>End Date: <%= @project.end_date %></h4> -->
 
 
-<h3><%= link_to "+ Add a project update", new_post_path %></h3>
+<h3>Add a new post for this project:</h3>
+
+<%= form_for [@project, @post] do |f| %>
+    <fieldset>
+        <div>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+        <div>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+        </div>
+    </fieldset>
+    <%= f.submit %>
+
+<% end %>
 
 <div>
-    <% @project.post.each do |post| %>
+    <% @project.posts.each do |post| %>
         <div>
-            <h3><%= link_to post.title, post %></h3>
+            <h1><%= link_to post.title, "/projects/#{@project.id}/posts/#{post.id}" %></h1>
+            <p>Posted by: <%= post.user.email %></p>
             <p><%= post.description %></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quas, facere nobis, harum quia consectetur placeat, libero adipisci impedit, totam quam! Iusto culpa, atque fugit fugiat facilis tempora enim laudantium?</p>
         </div>

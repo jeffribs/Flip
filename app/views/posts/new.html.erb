@@ -1,6 +1,6 @@
 <h1>Add a project update!</h1>
 
-<%= form_for @post do |f| %>
+<%= form_for [@project, @post] do |f| %>
     <fieldset>
         <div>
             <%= f.label :title %>
