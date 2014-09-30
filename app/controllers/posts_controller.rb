@@ -15,6 +15,7 @@ class PostsController < ApplicationController
         @post = current_user.posts.create post_params
 
         redirect_to @post.project
+        @document = Document.create doc_params
     end
 
     def show
@@ -25,6 +26,10 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(:title, :description).merge(project_id: params[:project_id])
+    end
+
+    def doc_params
+        params.require(:document).permit(:attachment).merge(post_id: params[:post_id])
     end
 
 end
